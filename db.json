@@ -31,9 +31,31 @@
             "id": "4"
         }
     ],
+
     "room": [
-        ""
+        {
+            "title": "Bedroom Set",
+            "slug": "bedroom-set",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "1",
+            "id": "5"
+        },
+        {
+            "title": "Baby Bedroom",
+            "slug": "baby-bedroom",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "1",
+            "id": "6"
+        },
+        {
+            "title": "Beddings",
+            "slug": "beddings",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "1",
+            "id": "7"
+        }
     ],
+    
     "products": [
         {
             "name": "Bedroom Set King Size",

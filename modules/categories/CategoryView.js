@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {StyleSheet,View, Alert} from 'react-native';
 
 import CategoryList from './CategoryList';
-import { getCategories } from '../../models/category-model';
+import { getCategories, getCategoryById } from '../../models/category-model';
 
 
 const styles = StyleSheet.create({
@@ -27,7 +27,8 @@ class CategoryView extends Component {
     }
 
     _onItemSelected = (id) => {
-        Alert.alert(id);
+        let categories = getCategoryById(id);
+        this.setState( { categories });
     }
 
 
