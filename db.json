@@ -2,13 +2,32 @@
     "categories": [
         {
             "title": "Room",
-            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg"
+            "slug": "room",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "0",
+            "id": "1"
         },
         {
-            "title": "Room",
-            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg"
+            "title": "Lighting",
+            "slug": "lighting",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "0",
+            "id": "2"
+        },
+        {
+            "title": "Accessories",
+            "slug": "accessories",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "0",
+            "id": "3"
+        },
+        {
+            "title": "Categories",
+            "slug": "categories",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg",
+            "parent": "0",
+            "id": "4"
         }
-
     ],
     "products": [
         {
