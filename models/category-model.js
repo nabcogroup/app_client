@@ -8,5 +8,7 @@ export function getCategories() {
     return categories;
 }
 
-
+export function getCategoryById(categoryId) {
+    
+}
 

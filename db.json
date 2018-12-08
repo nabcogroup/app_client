@@ -1,4 +1,6 @@
 {
+    
+    
     "categories": [
         {
             "title": "Room",
@@ -28,6 +30,9 @@
             "parent": "0",
             "id": "4"
         }
+    ],
+    "room": [
+        ""
     ],
     "products": [
         {
