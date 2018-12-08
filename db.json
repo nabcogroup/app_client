@@ -1,0 +1,60 @@
+{
+    "categories": [
+        {
+            "title": "Room",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg"
+        },
+        {
+            "title": "Room",
+            "imgSrc": "http://arnoldm2.sg-host.com/wp-content/uploads/2018/11/BEDROOM-4.jpg"
+        }
+
+    ],
+    "products": [
+        {
+            "name": "Bedroom Set King Size",
+            "sku":  "10042007",
+            "description": "King Bedroom with mattress",
+            "category": "bedroom",
+            "price": "12400 QAR",
+            "salePrice": "8400 QAR",
+            "saleDateFrom": "2018-11-16",
+            "saleDateTo": "2018-12-31",
+            "id": "1"
+        },
+        {
+            "name": "Bedroom Set Queen Size",
+            "sku":  "10038837",
+            "description": "King Bedroom with mattress",
+            "price": "12400 QAR",
+            "category": "bedroom",
+            "salePrice": "8400 QAR",
+            "saleDateFrom": "2018-11-16",
+            "saleDateTo": "2018-12-31",
+            "id": "2"
+        },
+        {
+            "name": "Bedroom Set Queen Size",
+            "sku":  "10038837",
+            "description": "King Bedroom with mattress",
+            "price": "12400 QAR",
+            "category": "bedroom",
+            "salePrice": "8400 QAR",
+            "saleDateFrom": "2018-11-16",
+            "saleDateTo": "2018-12-31",
+            "id": "3"
+        },
+        {
+            "name": "Bedroom Set Queen Size",
+            "sku":  "10038837",
+            "description": "King Bedroom with mattress",
+            "price": "12400 QAR",
+            "category": "bedroom",
+            "salePrice": "8400 QAR",
+            "saleDateFrom": "2018-11-16",
+            "saleDateTo": "2018-12-31",
+            "id": "4"
+        }
+
+    ]
+}
