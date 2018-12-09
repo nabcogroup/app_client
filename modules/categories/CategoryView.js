@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import {StyleSheet,View, Alert} from 'react-native';
+import {StyleSheet,View, Alert, Button} from 'react-native';
 
 import CategoryList from './CategoryList';
-import { getCategories, getCategoryById } from '../../models/category-model';
+import { CategoryDS } from '../../models/category-model';
 
 
 const styles = StyleSheet.create({
@@ -11,24 +11,56 @@ const styles = StyleSheet.create({
 
 class CategoryView extends Component {
     
-    static navigationOptions = {
-        title: 'Categories'
+    static navigationOptions = ({ navigation }) => {
+        return {
+            headerTitle: navigation.getParam('title','Category'),
+        }
     }
 
     state = {
-        categories: []
+        categories: [],
+        isBackButtonShow: false,
+        onBackButtonClicked: this._onBackButtonClicked
+    }
+    
+    categoryService = new CategoryDS();
+
+
+    constructor(props) {
+        super(props);
     }
 
-    
 
     componentDidMount() {
-        let categories = getCategories();
-        this.setState( { categories });
+        
+        let that = this;
+        this.props.navigation.addListener("didFocus", this._reload);
     }
 
-    _onItemSelected = (id) => {
-        let categories = getCategoryById(id);
-        this.setState( { categories });
+    _reload = (payload) => {
+        this.categoryService.getParentCategories((categories) => {
+            this.setState( { categories });
+            this.props.navigation.setParams({title: `Category` });
+        });
+    }
+
+    _onBackButtonClicked = () => {
+
+        //make it back to categories
+        Alert.alert('I was clicked');
+    }
+
+    _onItemSelected = (item) => {
+
+        if(item.count > 0) {
+            this.categoryService.getCategoryByParentId(item.id, (categories) => {
+                this.setState( { categories });
+                this.props.navigation.setParams({title: `Category - ${item.title} ` });
+            });
+        }
+        else {
+            this.props.navigation.navigate("Products")
+        }
     }
 
 

@@ -1,13 +1,42 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-import ProductView from './modules/products/ProductView';
-import CategoryView from './modules/categories/CategoryView';
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-const AppNavigator = createStackNavigator({
-  Categories: {screen: CategoryView},
-  Products: {screen: ProductView}
-})
+import ProductListView from './modules/products/ProductListView';
+import ViewCategories from './modules/categories/ViewCategories';
+import ViewPanelCategories from './modules/categories/ViewPanelCategories';
+import ViewSectionCategories from './modules/categories/ViewSectionCategories';
 
-export default createAppContainer(AppNavigator);
+
+
+export default class App extends React.Component {
+
+  render() {
+    return <AppContainer/>;
+  }
+}
+
+const AppNavigator = createStackNavigator(
+  {
+    Categories: ViewCategories,
+    PanelCategories: ViewPanelCategories,
+    SectionCategories: ViewSectionCategories,
+    Products: ProductListView
+  },
+  {
+    initialRouteName: 'Categories',
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }
+  }
+);
+
+
+
+const AppContainer = createAppContainer(AppNavigator);
