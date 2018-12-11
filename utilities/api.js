@@ -1,6 +1,4 @@
-
-
-const httpUrl = "http://e0dbb966.ngrok.io";
+const httpUrl = "http://b204385c.ngrok.io";
 
 export function fetchGet(req) {
     
@@ -8,8 +6,19 @@ export function fetchGet(req) {
     let query = (req.query) ? req.query : "";
 
     const url = httpUrl + (req == null ? "" : "/" + action + query);
-    console.log(url);
     return fetch(url)
         .then(response => response.json())
         .catch(err => console.log(err))
+}
+
+export function fetchGetUrl(req) {
+
+    const url = httpUrl + "/" + req.url;
+    return fetch(url)
+        .then(response => response.json())
+        .catch(err => console.log(err));
+}
+
+export function prefetchGet(req) {
+    
 }

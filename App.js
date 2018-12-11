@@ -2,10 +2,9 @@ import React from 'react';
 
 import {createStackNavigator, createAppContainer} from 'react-navigation';
 
-import ProductListView from './modules/products/ProductListView';
+
 import ViewCategories from './modules/categories/ViewCategories';
-import ViewPanelCategories from './modules/categories/ViewPanelCategories';
-import ViewSectionCategories from './modules/categories/ViewSectionCategories';
+import ViewProducts from './modules/products/ViewProducts';
 
 
 
@@ -19,9 +18,9 @@ export default class App extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Categories: ViewCategories,
-    PanelCategories: ViewPanelCategories,
-    SectionCategories: ViewSectionCategories,
-    Products: ProductListView
+    PanelCategories: ViewCategories,
+    SectionCategories: ViewCategories,
+    Products: ViewProducts
   },
   {
     initialRouteName: 'Categories',

@@ -23,8 +23,6 @@ export default class ViewSectionCategories extends React.Component {
         const { navigation } = this.props;
         const parentId = navigation.getParam('parentId',0);
         const title = navigation.getParam('title','');
-
-        console.log(parentId);
         
         this.categoryService.getCategoryByParentId(parentId, (categories) => {
             this.setState({ categories });
@@ -33,9 +31,8 @@ export default class ViewSectionCategories extends React.Component {
     }
 
     _onItemSelected = (item) => {
-
         const { navigation } = this.props;
-        navigation.navigate('Products', { categoryId: item.id})
+        navigation.navigate('Products', { categoryId: item.id, title: item.name})
     }
     
 
@@ -44,10 +41,8 @@ export default class ViewSectionCategories extends React.Component {
             <View>
                 <CategoryList 
                      categories={this.state.categories} 
-                     onItemSelected={this._onItemSelected}
-                ></CategoryList>
+                     onItemSelected={this._onItemSelected}></CategoryList>
             </View>
-
         )
     }
 }

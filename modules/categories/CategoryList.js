@@ -26,17 +26,15 @@ const styles = StyleSheet.create({
 const CategoryCard = ({item, onPressItem }) => {
 
     _onPressItem = () => {
-        onPressItem({id: item.id, title: item.title, count: item.count,parent: item.parent})
+        onPressItem({id: item.id, name: item.name, count: item.count,parent: item.parent, isProductDisplay: item.isProductDisplay})
     }
 
     return (
         <TouchableHighlight onPress={this._onPressItem}>
             <View style={styles.card}>
-                <Text style={styles.cardContent}>{item.title}</Text>
+                <Text style={styles.cardContent}>{item.name}</Text>
             </View>
-        </TouchableHighlight>
-        
-    )
+        </TouchableHighlight>)
 }
 
 class CategoryList extends Component {
@@ -45,7 +43,7 @@ class CategoryList extends Component {
         super(props);
     }
 
-    _keyExtractor = (item, index) => item.id;
+    _keyExtractor = (item, index) => item.id.toString();
     
     _onPressItem = (item) => {
         this.props.onItemSelected(item) 
@@ -57,7 +55,8 @@ class CategoryList extends Component {
             item={item}></CategoryCard>)
 
     render() {
-        return(
+        
+        return (
             <View>
                 <FlatList
                     data={this.props.categories}

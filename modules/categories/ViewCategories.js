@@ -18,28 +18,46 @@ export default class ViewCategories extends React.Component {
 
     categoryService = new CategoryDS();
 
-
     componentDidMount() {
         
-        this.categoryService.getParentCategories((categories) => {
-            console.log(categories);
+        const { navigation } = this.props;
+        const parentId = navigation.getParam('parentId',0);
+        const title = navigation.getParam('title','Main Category');
+        
+        this.props.navigation.setParams({title: `${title} ` });
+        
+        this.categoryService.getCategoryByParentId(parentId, (categories) => {
             this.setState( { categories });
-            this.props.navigation.setParams({title: `Main Category` });
         });
+
     }
-
-
 
     _onItemSelected = (item) => {
-        if(item.count > 0) {
-            this.props.navigation.navigate('PanelCategories', { parentId: item.id, title: item.title })
+
+        const { navigation } = this.props;
+        
+        if(item.isProductDisplay) {
+            navigation.navigate('Products', { categoryId: item.id, title: item.name})
         }
         else {
-            this.props.navigation.navigate('ViewProducts')
+
+            //send level
+            let level = navigation.getParam('level',0);
+            level = level + 1;
+            
+            let viewType = '';
+            
+            if(level === 1) {
+                viewType = 'PanelCategories'
+            }
+            else {
+                viewType = 'SectionCategories'
+            }
+
+
+            navigation.navigate(viewType, { parentId: item.id, title: item.name, level: level })
         }
     }
-    
-
 
     render() {
         return (
@@ -51,6 +69,7 @@ export default class ViewCategories extends React.Component {
         )
     }
 }
+
 
 
 const styles = StyleSheet.create({

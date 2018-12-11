@@ -2,23 +2,43 @@
 import { fetchGet } from "./../utilities/api";
 
 
+function extractDisplay(display) {
+    if(display === 'products') {
+        return true
+    }
+    else {
+        return false
+    }
+}
+
 export class CategoryDS {
 
     constructor() {
         this.categories = [];
     }
 
-    getParentCategories(callback) {
+    getParentCategories(callback,errCallback = null) {
 
-        fetchGet({ action: 'categories', query: '?parent=0' }).then(categories => {
-            this.categories = categories;
-            callback(this.categories);
+        fetchGet({ action: 'categories' })
+        .then(categories => categories.map(c => ({
+                ...c,
+                isProductDisplay: extractDisplay(c.display)
+            }))
+        )
+        .then(categories => {
+            callback(categories);
         });
     }
 
     getCategoryByParentId(categoryId,callback) {
         
-        fetchGet({ action: 'categories', query: `?parent=${categoryId}` }).then( response => {
+        fetchGet({ action: 'categories/parent', query: `/${categoryId}` })
+        .then(response => response.map(c => ({
+            ...c,
+            isProductDisplay: extractDisplay(c.display)
+        }))
+        )
+        .then( response => {
             callback(response);
         });
     }

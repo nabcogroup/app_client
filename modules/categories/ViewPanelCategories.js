@@ -23,7 +23,6 @@ export default class ViewPanelCategories extends React.Component {
         const parentId = navigation.getParam('parentId',0);
         const title = navigation.getParam('title','');
 
-        console.log(parentId);
         this.categoryService.getCategoryByParentId(parentId, (categories) => {
             this.setState( { categories });
             this.props.navigation.setParams({title: `${title} ` });
@@ -32,12 +31,14 @@ export default class ViewPanelCategories extends React.Component {
 
 
     _onItemSelected = (item) => {
+        
         const { navigation } = this.props;
-        if(item.count > 0) {
-            navigation.navigate('SectionCategories', { parentId: item.id, title: item.title})
+        console.log(item);
+        if(item.isProductDisplay) {
+            navigation.navigate('Products', { categoryId: item.id, title: item.name})
         }
         else {
-            navigation.navigate('ViewProducts')
+            navigation.navigate('SectionCategories', { parentId: item.id, title: item.name})
         }
     }
 
