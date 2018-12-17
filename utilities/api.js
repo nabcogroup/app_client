@@ -6,6 +6,7 @@ export function fetchGet(req) {
     let query = (req.query) ? req.query : "";
 
     const url = httpUrl + (req == null ? "" : "/" + action + query);
+    
     return fetch(url)
         .then(response => response.json())
         .catch(err => console.log(err))

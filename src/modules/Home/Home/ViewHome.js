@@ -55,17 +55,14 @@ export default class ViewHome extends Component {
 					<ScrollView scrollEventThrottle={16}>
 						<View style={{ flex: 1, backgroundColor: 'white'}}>
 							<View style={{ height: 220, marginTop: 20 }}>
-
 								<Text style={{ fontSize: 20, fontWeight: '700', paddingVertical: 10 }}>Our Promotions</Text>
-
 								<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 									{this.state.promotions.map((pro,index) => <PromotionWidget item={pro} key={index.toString()} /> )}
 								</ScrollView>
 							</View>
-							
 							<View style={{ }}>
 								<Text>FEATURED PRODUCTS</Text>
-								
+
 							</View>
 						</View>
 					</ScrollView>
