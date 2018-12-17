@@ -11,6 +11,7 @@ import {
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import PromotionWidget from './PromotionWidget';
+import FeaturedCardWidget from './FeaturedCardWidget';
 
 
 export default class ViewHome extends Component {
@@ -38,7 +39,7 @@ export default class ViewHome extends Component {
 
 		return (
 			<SafeAreaView style={{flex: 1}}>
-				<View style={{flex: 1, backgroundColor: '#fff'}}>
+				<View style={{flex: 1, backgroundColor: '#f5f5f5'}}>
 					<View style={[styles.header, { marginTop: Platform.OS === 'android' ? 20 : null }]}>
 						<View style={{
 							flexDirection: "row"}}>
@@ -53,20 +54,21 @@ export default class ViewHome extends Component {
 					</View>
 					
 					<ScrollView scrollEventThrottle={16}>
-						<View style={{ flex: 1, backgroundColor: 'white'}}>
-							<View style={{ height: 220, marginTop: 20 }}>
+						<View style={{ flex: 1 }}>
+							<View style={{ height: 220,backgroundColor: 'white', elevation: 1, shadowColor: "#ddd", shadowOffset: {width: 0, height: 0} }}>
 								<Text style={{ fontSize: 20, fontWeight: '700', paddingVertical: 10 }}>Our Promotions</Text>
 								<ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
 									{this.state.promotions.map((pro,index) => <PromotionWidget item={pro} key={index.toString()} /> )}
 								</ScrollView>
 							</View>
 							<View style={{ }}>
-								<Text>FEATURED PRODUCTS</Text>
+								<FeaturedCardWidget></FeaturedCardWidget>
+								<FeaturedCardWidget></FeaturedCardWidget>
+								<FeaturedCardWidget></FeaturedCardWidget>
 
 							</View>
 						</View>
 					</ScrollView>
-
 				</View>
 			</SafeAreaView>
 		)
@@ -80,6 +82,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 5,
 		height: 50,
 		borderBottomWidth: 0.5,
-		borderBottomColor: "#ddd"
+		borderBottomColor: "#ddd",
+		backgroundColor: "#fff"
 	}
 });
